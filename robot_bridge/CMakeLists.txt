@@ -59,6 +59,7 @@ install(DIRECTORY
   scripts
   maps
   config
+  rviz
   robot_bridge
   DESTINATION share/${PROJECT_NAME})
 

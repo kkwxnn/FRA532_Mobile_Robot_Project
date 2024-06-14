@@ -17,6 +17,8 @@ def generate_launch_description():
     use_sim_time = LaunchConfiguration('use_sim_time', default='false')
     map_dir = os.path.join(get_package_share_directory(
         'robot_bridge'), 'maps')
+    # map_file = LaunchConfiguration('map', default=os.path.join(
+    #     map_dir, 'gensurv1.yaml'))
     map_file = LaunchConfiguration('map', default=os.path.join(
         map_dir, 'FIBO_floor5_AMCL.yaml'))
 
@@ -100,7 +102,7 @@ def generate_launch_description():
 
     # pkg = get_package_share_directory('calibration_gen')
     # rviz_path = os.path.join(pkg,'config','_display.rviz')
-    print(os.path.join(get_package_share_directory('robot_localization'), 'launch'), '/ekf.launch.py')
+    # print(os.path.join(get_package_share_directory('robot_localization'), 'launch'), '/ekf.launch.py')
 
     ekf_node = IncludeLaunchDescription(
                 PythonLaunchDescriptionSource([os.path.join(
@@ -151,7 +153,7 @@ def generate_launch_description():
         # DiffDriveRobot,
         # CommandOdom,
         # imuread_node,
-        # ekf_node,
+        ekf_node,
         # ackerman_node,
 
         RobotCommand_Node,
